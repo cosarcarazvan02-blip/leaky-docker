@@ -1,0 +1,10 @@
+# syntax=docker/dockerfile:1
+FROM eclipse-temurin:21-jdk
+WORKDIR /app
+
+RUN --mount=type=secret,id=aws_creds \
+    echo "folosesc secretul la build..." && cat /run/secrets/aws_creds > /dev/null
+
+COPY App.java /app/
+RUN javac App.java
+CMD ["java", "App"]

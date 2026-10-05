@@ -1,0 +1,4 @@
+secrets.env
+extract/
+extract-safe/
+*.tar
